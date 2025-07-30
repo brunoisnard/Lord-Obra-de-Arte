@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obra: Lord | Nuna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* O CSS é o mesmo de todas as outras páginas para manter a consistência */
+        :root { --cor-fundo: #F4F1EE; --cor-texto-principal: #4A3F35; --cor-titulo: #2F3D2F; --cor-detalhe: #B9A489; --fonte-titulo: 'Cormorant Garamond', serif; --fonte-corpo: 'Lato', sans-serif; }
+        body { background-color: var(--cor-fundo); color: var(--cor-texto-principal); font-family: var(--fonte-corpo); line-height: 1.8; margin: 0; padding-top: 80px; }
+        main { padding: 40px 20px; }
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-bottom: 1px solid #EAE6E1; }
+        .header-content { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-family: var(--fonte-titulo); font-size: 2em; font-weight: 700; color: var(--cor-titulo); text-decoration: none; }
+        .main-nav a { font-family: var(--fonte-corpo); text-decoration: none; color: var(--cor-texto-principal); margin: 0 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9em; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+        .main-nav a:hover { color: var(--cor-titulo); border-bottom-color: var(--cor-detalhe); }
+        .main-nav a.active { color: var(--cor-titulo); border-bottom-color: var(--cor-titulo); }
+        .portfolio-container { max-width: 1200px; width: 100%; margin: 0 auto; background-color: #FFFFFF; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+        .content-wrapper { display: flex; flex-wrap: wrap; }
+        .coluna-imagem { flex: 1 1 45%; min-width: 320px; background-color: #EAE6E1; display: flex; align-items: center; justify-content: center; }
+        .coluna-imagem img { width: 100%; height: 100%; object-fit: cover; }
+        .coluna-texto { flex: 1 1 55%; padding: 50px 60px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; }
+        .coluna-texto h1 { font-family: var(--fonte-titulo); font-size: 2.8em; color: var(--cor-titulo); margin: 0 0 10px 0; font-weight: 700; line-height: 1.2; }
+        .artista-nome { font-family: var(--fonte-corpo); font-size: 1.1em; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--cor-detalhe); margin-bottom: 15px; }
+        .instagram-link { display: inline-block; margin-bottom: 30px; font-size: 0.9em; text-decoration: none; color: var(--cor-detalhe); border: 1px solid var(--cor-detalhe); padding: 5px 15px; border-radius: 20px; transition: all 0.3s ease; font-weight: bold; }
+        .instagram-link:hover { background-color: var(--cor-detalhe); color: #FFFFFF; }
+        p { font-size: 1em; font-weight: 400; text-align: justify; margin-bottom: 20px; }
+        .texto-conceitual { font-style: italic; color: #6c5f53; border-left: 3px solid var(--cor-detalhe); padding-left: 20px; margin: 20px 0; }
+        .ficha-tecnica { margin: 30px 0; padding: 20px; background-color: #F9F7F5; border-radius: 5px; }
+        .ficha-tecnica h3 { font-family: var(--fonte-titulo); font-weight: 600; color: var(--cor-titulo); margin-top: 0; border-bottom: 1px solid var(--cor-detalhe); padding-bottom: 10px; }
+        .ficha-tecnica ul { list-style: none; padding: 0; }
+        .ficha-tecnica li { margin-bottom: 8px; }
+        .ficha-tecnica strong { font-weight: 700; color: var(--cor-texto-principal); }
+        
+        /* ✅ Estilos para o Player de Áudio ✅ */
+        .audio-player { margin-top: 30px; }
+        .audio-player h3 { font-family: var(--fonte-titulo); font-weight: 600; color: var(--cor-titulo); }
+        .audio-player iframe { border-radius: 5px; border: 1px solid #e0d9cf; }
+
+        @media (max-width: 900px) { .content-wrapper { flex-direction: column; } .coluna-texto { padding: 40px; } .coluna-texto h1 { font-size: 2.2em; } }
+        @media (max-width: 768px) { .header-content { flex-direction: column; height: auto; padding: 20px; } .main-nav { margin-top: 15px; } .main-nav a { margin: 0 10px; } body { padding-top: 120px; } }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">NUNA</a>
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="trabalhos.html" class="active">TRABALHOS</a>
+                <a href="quemsou.html">QUEM SOU EU</a>
+                <a href="contato.html">CONTATO</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="portfolio-container">
+            <div class="content-wrapper">
+                <div class="coluna-imagem">
+                    <img src="imagens/lord.jpg" alt="Escultura Lord de Nuna">
+                </div>
+                <div class="coluna-texto">
+                    <h1>Lord</h1>
+                    <p class="artista-nome">Uma obra de Nuna</p>
+                    <a href="https://www.instagram.com/nunaemmovimento?igsh=MWYxbmQ0ZjNpemI4Nw==" target="_blank" class="instagram-link">Ver no Instagram</a>
+                    <p class="texto-conceitual">A escultura "Lord" é um testemunho fascinante da capacidade de transformar o efémero em eterno, o descartado em arte.</p>
+                    <p>A figura humanóide abstrata que emerge da madeira possui curvas fluidas e um senso inegável de movimento. É uma dança silenciosa que celebra a forma e a vitalidade, mesmo partindo de um estado de aparente declínio. A peça é uma prova da maestria e paciência do artista, demonstrando o quão valioso pode ser o aproveitamento de materiais que muitos considerariam perdidos.</p>
+                    <div class="ficha-tecnica">
+                        <h3>Ficha Técnica</h3>
+                        <ul>
+                            <li><strong>Materiais:</strong> Madeira de Jaqueira, Pequiá e Cajacatinga em decomposição.</li>
+                            <li><strong>Dimensões:</strong> Aproximadamente 50 cm de altura.</li>
+                            <li><strong>Estrutura:</strong> Figura humanóide abstrata com haste amarelada vibrante.</li>
+                            <li><strong>Destaque:</strong> Parte superior vazada que adiciona leveza e mistério.</li>
+                            <li><strong>Versatilidade:</strong> Ideal para diversos ambientes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="audio-player">
+                        <h3>Comentário sobre a Obra</h3>
+                        <iframe width="100%" height="60" src="https://voca.ro/embed/19TST0pSNhal?autoplay=0" frameborder="0" allow="autoplay"></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
