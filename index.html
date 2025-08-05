@@ -20,21 +20,24 @@
         .main-nav a.active { color: var(--cor-titulo); border-bottom-color: var(--cor-titulo); }
         .portfolio-container { max-width: 1200px; width: 100%; margin: 0 auto; background-color: #FFFFFF; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
         .content-wrapper { display: flex; flex-wrap: wrap; }
-        .coluna-imagem { flex: 1 1 45%; min-width: 320px; background-color: #EAE6E1; display: flex; align-items: center; justify-content: center; }
-        .coluna-imagem img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+        .coluna-imagem { flex: 1 1 45%; min-width: 320px; background-color: #EAE6E1; display: flex; align-items: center; justify-content: center; overflow: hidden; /* Garante que o zoom não saia da área */ }
+        .coluna-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.4s ease; /* ✅ Efeito de transição suave para o zoom */
+        }
+        .coluna-imagem a:hover img {
+            transform: scale(1.5); /* ✅ Efeito de zoom de 5% ao passar o mouse */
+        }
         .coluna-texto { flex: 1 1 55%; padding: 50px 60px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; }
         .coluna-texto h1 { font-family: var(--fonte-titulo); font-size: 2.8em; color: var(--cor-titulo); margin: 0 0 10px 0; font-weight: 700; line-height: 1.2; }
         .artista-nome { font-family: var(--fonte-corpo); font-size: 1.1em; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--cor-detalhe); margin-bottom: 15px; }
         .instagram-link { display: inline-block; margin-bottom: 30px; font-size: 0.9em; text-decoration: none; color: var(--cor-detalhe); border: 1px solid var(--cor-detalhe); padding: 5px 15px; border-radius: 20px; transition: all 0.3s ease; font-weight: bold; }
         .instagram-link:hover { background-color: var(--cor-detalhe); color: #FFFFFF; }
         p { font-size: 1em; font-weight: 400; text-align: justify; margin-bottom: 20px; }
-        .texto-conceitual {
-            font-style: italic;
-            color: var(--cor-texto-principal); /* ✅ COR CORRIGIDA PARA MARROM ESCURO ✅ */
-            border-left: 3px solid var(--cor-detalhe);
-            padding-left: 20px;
-            margin: 20px 0;
-        }
+        .texto-conceitual { font-style: italic; color: var(--cor-texto-principal); border-left: 3px solid var(--cor-detalhe); padding-left: 20px; margin: 20px 0; }
         .ficha-tecnica { margin-top: 30px; padding: 20px; background-color: #F9F7F5; border-radius: 5px; }
         .ficha-tecnica h3 { font-family: var(--fonte-titulo); font-weight: 600; color: var(--cor-titulo); margin-top: 0; border-bottom: 1px solid var(--cor-detalhe); padding-bottom: 10px; }
         .ficha-tecnica ul { list-style: none; padding: 0; }
@@ -46,8 +49,19 @@
         .galeria-detalhes { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--cor-fundo); }
         .galeria-detalhes h3 { font-family: var(--fonte-titulo); font-weight: 600; color: var(--cor-titulo); margin-top: 0; }
         .miniaturas-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .miniaturas-container a img { width: 100%; height: 100px; object-fit: cover; border-radius: 5px; border: 2px solid transparent; transition: border-color 0.3s ease; }
-        .miniaturas-container a:hover img { border-color: var(--cor-detalhe); }
+        .miniaturas-container a { overflow: hidden; border-radius: 5px; } /* Garante que o zoom não saia da área da miniatura */
+        .miniaturas-container a img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            transition: transform 0.4s ease, border-color 0.3s ease; /* ✅ Efeito de transição suave para o zoom */
+        }
+        .miniaturas-container a:hover img {
+            border-color: var(--cor-detalhe);
+            transform: scale(1.2); /* ✅ Efeito de zoom de 10% ao passar o mouse */
+        }
         @media (max-width: 900px) { .content-wrapper { flex-direction: column; } .coluna-texto { padding: 40px; } .coluna-texto h1 { font-size: 2.2em; } }
         @media (max-width: 768px) { .header-content { flex-direction: column; height: auto; padding: 20px; } .main-nav { margin-top: 15px; } .main-nav a { margin: 0 10px; } body { padding-top: 120px; } }
     </style>
@@ -68,7 +82,7 @@
         <div class="portfolio-container">
             <div class="content-wrapper galeria-obra">
                 <div class="coluna-imagem">
-                    <a href="imagens/lord.jpg">
+                    <a href="imagens/lord.jpg" title="Ver imagem em tela cheia">
                         <img src="imagens/lord.jpg" alt="Escultura Lord de Nuna">
                     </a>
                 </div>
@@ -94,10 +108,10 @@
                     <div class="galeria-detalhes">
                         <h3>Mais Imagens</h3>
                         <div class="miniaturas-container">
-                            <a href="imagens/lord-detalhe-01.jpg"><img src="imagens/lord-detalhe-01.jpg" alt="Detalhe 1 da obra Lord"></a>
-                            <a href="imagens/lord-detalhe-02.jpg"><img src="imagens/lord-detalhe-02.jpg" alt="Detalhe 2 da obra Lord"></a>
-                            <a href="imagens/lord-detalhe-03.jpg"><img src="imagens/lord-detalhe-03.jpg" alt="Detalhe 3 da obra Lord"></a>
-                            <a href="imagens/lord-detalhe-04.jpg"><img src="imagens/lord-detalhe-04.jpg" alt="Detalhe 4 da obra Lord"></a>
+                            <a href="imagens/lord-detalhe-01.jpg" title="Ver detalhe 1"><img src="imagens/lord-detalhe-01.jpg" alt="Detalhe 1 da obra Lord"></a>
+                            <a href="imagens/lord-detalhe-02.jpg" title="Ver detalhe 2"><img src="imagens/lord-detalhe-02.jpg" alt="Detalhe 2 da obra Lord"></a>
+                            <a href="imagens/lord-detalhe-03.jpg" title="Ver detalhe 3"><img src="imagens/lord-detalhe-03.jpg" alt="Detalhe 3 da obra Lord"></a>
+                            <a href="imagens/lord-detalhe-04.jpg" title="Ver detalhe 4"><img src="imagens/lord-detalhe-04.jpg" alt="Detalhe 4 da obra Lord"></a>
                         </div>
                     </div>
                 </div>
